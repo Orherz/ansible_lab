@@ -1,0 +1,13 @@
+---
+- hosts: all # run the playbook on all the servers
+  become: true # run the playbook as root user
+  tasks: # start the tasks section
+
+  - name: update repository index # name for the task 
+    apt: # the module that will be used
+      update_cache: yes # the argument for the package installation using apt module
+      
+  - name: install apache2 package # name for the task 
+    apt: # the module that will be used
+      name: apache2 # the argument for the package installation using apt module
+      state: latest
